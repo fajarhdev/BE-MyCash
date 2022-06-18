@@ -1,12 +1,13 @@
-const { BrickSDK, ENVIRONMENT } = require("onebrick-node-sdk");
+var request = require('request');
 
-const clientId = process.env.CLIENT_ID;
-const clientSecret = process.env.CLIENT_SECRET;
-const name = process.env.COMPANY_NAME;
-const url = "https://sandbox.onebrick.io/v1/auth/token";
-
-let sdk = new BrickSDK(clientId, clientSecret, ENVIRONMENT.SANDBOX, name, url);
-let a = await sdk.requestAccessToken();
-let b = await sdk.requestAuthentication();
-
-module.exports = sdk;
+request({
+    method: 'GET',
+    url: 'https://sandbox.onebrick.io/v1/auth/token',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic MDQ5M2YxMDItNzg3Mi00MzQ1LWJkYzgtYTk0NDJiYWEzMzAwOjhJVFd1OGYwS0NCYkowYUhmdUZvamN4YTBvTHQ5dw=='
+    }}, function (error, response, body) {
+    console.log('Status:', response.statusCode);
+    console.log('Headers:', JSON.stringify(response.headers));
+    console.log('Response:', body);
+});
