@@ -11,3 +11,5 @@ request({
     console.log('Headers:', JSON.stringify(response.headers));
     console.log('Response:', body);
 });
+
+module.exports = request;
