@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const sdk = require("../brick/brick");
+const { token } = require("../brick/brick");
 
-//
 router.get("/", (req, res, next) => {
-	res.send(sdk.listInstitution());
+	res.json(token);
+	console.log(`From API: ${token}`);
 });
 
 module.exports = router;
