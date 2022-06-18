@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-// const { token } = require("../brick/brick");
 var request = require('request');
 
 router.get("/", (req, res, next) => {
