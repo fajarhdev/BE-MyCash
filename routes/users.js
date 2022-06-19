@@ -1,14 +1,10 @@
 var express = require("express");
+const { getOne, postOne } = require("../controller/userController");
+
 var router = express.Router();
-const sdk = require("../brick/brick");
 
-router.post("/signup", (req, res, next) => {
-	res.send();
-});
+router.get("/", getOne);
 
-/* GET users listing. */
-router.get("/{:id}", function (req, res, next) {
-	res.send(req.params.id);
-});
+router.post("/", postOne);
 
 module.exports = router;
