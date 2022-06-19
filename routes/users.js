@@ -1,7 +1,9 @@
 var express = require("express");
-const { getOne, postOne } = require("../controller/userController");
+const { getOne, getAll, postOne } = require("../controller/userController");
 
 var router = express.Router();
+
+router.get("/", getAll);
 
 router.get("/", getOne);
 

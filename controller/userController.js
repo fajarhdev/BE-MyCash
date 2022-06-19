@@ -22,4 +22,13 @@ const postOne = async (req, res) => {
 	}
 };
 
-module.exports = { getOne, postOne };
+const getAll = async (req, res) => {
+	try {
+		const user = await User.find();
+		res.json(user);
+	} catch (error) {
+		res.json(error.message);
+	}
+};
+
+module.exports = { getOne, postOne, getAll };

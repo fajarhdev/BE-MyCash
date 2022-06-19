@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const financeRecordSchema = new mongoose.Schema({
 	user_id: {
 		type: mongoose.Types.ObjectId,
-		ref: "User",
+		ref: "user",
 		required: true,
 	},
 	date: {
@@ -17,6 +17,9 @@ const financeRecordSchema = new mongoose.Schema({
 	category: {
 		type: String,
 		required: true,
+	},
+	total: {
+		type: Number,
 	},
 });
 

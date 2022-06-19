@@ -9,7 +9,7 @@ require("dotenv").config();
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-const api = require("./routes/api");
+const api = require("./routes/brickAPI");
 const finance = require("./routes/financeRecord");
 const artikel = require("./routes/artikel");
 
@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/brick", api);
+// app.use("/brick", api);
 app.use("/finance", finance);
 app.use("/artikel", artikel);
 
