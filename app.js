@@ -9,11 +9,15 @@ require("dotenv").config();
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-const api = require("./routes/brickAPI");
+const publicKey = require("./routes/brickAPI");
 const finance = require("./routes/financeRecord");
 const artikel = require("./routes/artikel");
 
 var app = express();
+
+// view engine setup
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -24,7 +28,7 @@ app.use(bodyParser.json());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-// app.use("/brick", api);
+app.use("/brick", publicKey);
 app.use("/finance", finance);
 app.use("/artikel", artikel);
 
@@ -51,6 +55,7 @@ app.use(function (err, req, res, next) {
 
 	// render the error page
 	res.status(err.status || 500);
-	res.render("error");
+	// res.render("error");
+	res.json("err");
 });
 module.exports = app;
